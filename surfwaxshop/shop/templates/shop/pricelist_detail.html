@@ -1,0 +1,21 @@
+<!--{% load static %}-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+<h1>{{title}}</h1>
+
+{% if object.photo %}
+<p><img class="img-article-left" src="{{object.photo.url}}" width="299"></p>
+<p><img class="img-article-left" src="{{object.photo.url}}"></p>
+{% endif %}
+
+{{object.product_name|linebreaks}}
+{{object.price|linebreaks}}
+</body>
+</html>

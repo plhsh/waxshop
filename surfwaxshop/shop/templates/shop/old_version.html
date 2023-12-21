@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+
+<ul class="list-articles">
+	{% for p in object_list %}
+
+    {% if p.photo %}
+	<li><p><img class="img-article-left thumb" src="{{p.photo.url}}" width="149"></p>
+    {% endif %}
+
+	<h2>{{p.product_name}}</h2>
+    {% autoescape off %}
+	{{p.description|linebreaks|truncatewords:50}}
+    {% endautoescape %}
+	<div class="clear"></div>
+	<p class="link-read-post"><a href="{{ p.get_absolute_url }}">More details</a></p>
+	</li>
+	{% endfor %}
+</ul>
+
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,75 @@
+{% extends 'shop\base.html' %}
+
+{% block content %}
+<!--{% load static %}-->
+{% load t_filters %}
+
+<div class="container mt-1">
+<!--    <h2>Список элементов</h2>-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Details</th>
+                <th scope="col">EUR</th>
+                <th scope="col">Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in object_list %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                {% if product.photo %}
+                <td>
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{{product.photo.url}}" class="img-fluid" alt="Item photo"
+                             style="max-width: 149px">
+                    </a>
+                {% endif %}
+                    <div>
+                        <a href="{{ product.get_absolute_url }}">{{ product.product_name }}</a>
+                    </div>
+                </td>
+                <td>{{ product.description|linebreaksbr }}</td>
+                <td>{{ product.price }} $</td>
+                <!-- Форма для добавления продукта -->
+                <td>
+                    <form action="/#{{ product.id }}" method="post">
+                        {% csrf_token %}
+                        <div class="dropdown">
+                            {% with quantity=product|cart_quantity:request.session.cart %}
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton-{{ product.id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ quantity }}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{ product.id }}">
+                                    {% for i in '012345'|make_list %}
+                                    <li>
+                                        <button class="dropdown-item{% if i == quantity %} active{% endif %}" type="submit" name="quantity" value="{{ i }}">{{ i }}</button>
+                                    </li>
+                                    {% endfor %}
+                            {% endwith %}
+                            </ul>
+                        </div>
+                        <input type="hidden" name="product" value="{{ product.id }}">
+                    </form>
+
+
+<!--                    <form action="/#{{ product.id }}" method="post">-->
+<!--                    {% csrf_token %}-->
+<!--                    <input type="hidden" name="product" value="{{ product.id }}">-->
+<!--                    <input type="submit" value=" + " class="btn btn-primary">-->
+<!--                    </form>-->
+                </td>
+<!--                <td><button type="button" class="btn btn-primary">Add to Cart</button></td>-->
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No elements found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

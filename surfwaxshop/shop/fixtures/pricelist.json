@@ -1,0 +1,50 @@
+[
+{
+  "model": "shop.pricelist",
+  "pk": 1,
+  "fields": {
+    "product_name": "PURPLE LABEL",
+    "slug": "purple",
+    "photo": "photos/2023/12/purple_wax.jpg",
+    "description": "COLD TO COOL\r\n48°F to 68°F\r\n9°C to 20°C\r\nMAY SERVE AS A TOP COAT FOR EXTRA STICKNESS!!!",
+    "on_sale": true,
+    "price": 5
+  }
+},
+{
+  "model": "shop.pricelist",
+  "pk": 2,
+  "fields": {
+    "product_name": "GREEN LABEL",
+    "slug": "green",
+    "photo": "photos/2023/12/green_wax.jpg",
+    "description": "COOL TO MID WARM\r\n58°F to 74°F\r\n14°C to 23°C",
+    "on_sale": true,
+    "price": 5
+  }
+},
+{
+  "model": "shop.pricelist",
+  "pk": 3,
+  "fields": {
+    "product_name": "ORANGE LABEL",
+    "slug": "orange",
+    "photo": "photos/2023/12/orange_wax.jpg",
+    "description": "MID COOL TO WARM\r\n64°F to 78°F\r\n18°C to 26°C",
+    "on_sale": true,
+    "price": 5
+  }
+},
+{
+  "model": "shop.pricelist",
+  "pk": 4,
+  "fields": {
+    "product_name": "RED LABEL",
+    "slug": "red",
+    "photo": "photos/2023/12/red_wax.jpg",
+    "description": "WARM TO MID TROPIC\r\n70°F to 84°F\r\n21°C to 29°C\r\nMAY SERVE AS A BASECOAT FOR EXTRA STICKNESS !!!",
+    "on_sale": true,
+    "price": 5
+  }
+}
+]
