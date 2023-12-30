@@ -32,3 +32,6 @@ class CartItems(models.Model):
     class Meta:
         verbose_name = "Cart"
         verbose_name_plural = "Carts"
+
+    def __str__(self):
+        return f"{self.cart_owner} has {self.quantity} pieces of {self.cart_item} in the cart"
