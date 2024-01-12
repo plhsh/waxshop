@@ -6,7 +6,7 @@ from django.urls import reverse
 class PriceList(models.Model):
     product_name = models.CharField(max_length=100, verbose_name="Product")
     slug = models.SlugField(max_length=100, unique=True, db_index=True, verbose_name="Slug")
-    photo = models.ImageField(upload_to="photos/%Y/%m", default=None, blank=True, null=True, verbose_name="Photo")
+    photo = models.ImageField(upload_to="staticfiles", default=None, blank=True, null=True, verbose_name="Photo")
     description = models.TextField(blank=True, verbose_name="Product description")
     on_sale = models.BooleanField(verbose_name="On sale now")
     price = models.PositiveIntegerField(verbose_name="Price")
