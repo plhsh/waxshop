@@ -75,4 +75,5 @@ def cart(request):
 
 @login_required
 def confirm(request):
+    request.session['cart'] = {}
     return redirect('home')
